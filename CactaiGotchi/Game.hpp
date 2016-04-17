@@ -4,12 +4,20 @@
 # define GAME_HPP_
 
 # include "WindowSystem.hpp"
+# include "DrawHelper.hpp"
 
 namespace cactaigotchi
 {
-	namespace Game
+	class Game
 	{
-		void Tick(WindowSystem &);
+		WindowSystem &win;
+		DrawHelper helper;
+
+	public:
+		Game(WindowSystem &);
+
+		void render();
+		void tick();
 	};
 };
 

@@ -7,7 +7,7 @@ namespace cactaigotchi
 {
 
 	StateMachine::StateMachine(WindowSystem &_win) :
-			stateId(TITLE), win(_win)
+			stateId(TITLE), win(_win), game(_win)
 	{
 	}
 
@@ -53,6 +53,7 @@ namespace cactaigotchi
 		sf::Sprite sprite;
 		sprite.setTexture(texture);
 		win.it->draw(sprite);
+		clock.restart();
 	}
 
 	void StateMachine::howtoplayState()
@@ -81,6 +82,7 @@ namespace cactaigotchi
 		sf::Sprite sprite;
 		sprite.setTexture(texture);
 		win.it->draw(sprite);
+		clock.restart();
 	}
 
 	void StateMachine::gameState()
@@ -94,7 +96,14 @@ namespace cactaigotchi
 		}
 		sf::Sprite sprite;
 		sprite.setTexture(texture);
-		Game::Tick(win);
 		win.it->draw(sprite);
+
+		sf::Time elapsed = clock.getElapsedTime();
+		if (elapsed.asMilliseconds() > 200)
+		{
+			clock.restart();
+			game.tick();
+		}
+		game.render();
 	}
 };

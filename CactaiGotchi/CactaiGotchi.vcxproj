@@ -118,12 +118,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="DrawHelper.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="StateMachine.cpp" />
     <ClCompile Include="WindowSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="DrawHelper.hpp" />
     <ClInclude Include="Game.hpp" />
     <ClInclude Include="StateMachine.hpp" />
     <ClInclude Include="WindowSystem.hpp" />

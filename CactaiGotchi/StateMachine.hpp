@@ -4,6 +4,7 @@
 # define STATEMACHINE_HPP_
 
 # include "WindowSystem.hpp"
+# include "Game.hpp"
 
 namespace cactaigotchi
 {
@@ -18,6 +19,8 @@ namespace cactaigotchi
 	{
 		State	stateId;
 		WindowSystem &win;
+		Game	game;
+		sf::Clock clock;
 
 		void titleState();
 		void howtoplayState();
