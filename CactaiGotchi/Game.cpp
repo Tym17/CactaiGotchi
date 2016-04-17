@@ -13,6 +13,7 @@ namespace cactaigotchi
 		hp = 100;
 		clean = 100;
 		score = 0;
+		lastFed = Normal;
 		sensitiveAera.push_back(sensitiveZone(0, WIN_Y - 51, 51, WIN_Y, 1));
 		sensitiveAera.push_back(sensitiveZone(52, WIN_Y - 51, 103, WIN_Y, 2));
 		sensitiveAera.push_back(sensitiveZone(104, WIN_Y - 51, 155, WIN_Y, 3));
@@ -28,7 +29,18 @@ namespace cactaigotchi
 		{
 			if (event.type == sf::Event::MouseButtonPressed)
 			{
+				if (gameOver)
+				{
+					lastFed = Normal;
+					state = Normal;
+					hunger = 100;
+					hp = 100;
+					clean = 100;
+					score = 0;
+					gameOver = false;
+				}
 				clickTrigger(event.mouseButton.x, event.mouseButton.y);
+				
 			}
 		}
 		helper.drawImage(0, WIN_Y - 51, "img/droplets.png", 0x55AAFF, 0.10f);
@@ -65,10 +77,15 @@ namespace cactaigotchi
 		helper.drawImage(14, 28, "img/cactaifood.png");
 		helper.drawText(5, 22, "x", 30);
 		helper.drawText(5, 1, std::to_string(score).c_str(), 30);
+		if (gameOver)
+			helper.drawImage(0, 0, "img/gameover.png");
+
 	}
 
 	void Game::clickTrigger(int x, int y)
 	{
+		if (gameOver)
+			return;
 		for (std::vector<sensitiveZone>::iterator it = sensitiveAera.begin();
 			it != sensitiveAera.end(); ++it)
 		{
@@ -79,19 +96,30 @@ namespace cactaigotchi
 				switch (it->getZoneId())
 				{
 				case 1:
-					state = Water;
+					feedWater();
 					break;
 				case 2:
-					state = Honey;
+					feedHoney();
 					break;
 				case 3:
-					state = Fire;
+					feedFire();
 					break;
 				case 4:
-					state = Air;
+					feedAir();
 					break;
 				default:
 					break;
+				}
+				if (hunger >= 100)
+					hunger = 100;
+				if (clean >= 100)
+					clean = 100;
+				if (hp >= 100)
+					hp = 100;
+				if (hp <= 0)
+				{
+					gameOver = true;
+					hp = 0;
 				}
 			}
 		}
@@ -147,5 +175,149 @@ namespace cactaigotchi
 			cycles = 0;
 		}
 		++cycles;
+	}
+
+	void Game::feedAir()
+	{
+		if (state == Normal)
+		{
+			clean += 10;
+			hunger -= 2;
+		}
+		else if (state == Water)
+		{
+			clean += 3;
+			hp -= 4;
+		}
+		else if (state == Fire)
+		{
+			hp -= 60;
+			if (lastFed == Fire)
+				state = Fire;
+		}
+		else if (state == Air)
+		{
+			hp += 15;
+			clean -= 10;
+		}
+		else if (state == Honey)
+		{
+			clean += 6;
+			hunger -= 3;
+		}
+		lastFed = Air;
+	}
+
+	void Game::feedFire()
+	{
+		if (state == Normal)
+		{
+			hp -= 10;
+			if (lastFed == Fire)
+				state = Fire;
+		}
+		else if (state == Water)
+		{
+			hp -= 2;
+			if (lastFed == Fire)
+				state = Air;
+		}
+		else if (state == Fire)
+		{
+			hunger += 10;
+			hp -= 1;
+		}
+		else if (state == Air)
+		{
+			clean -= 10;
+			if (lastFed == Honey)
+				state = Normal;
+		}
+		else if (state == Honey)
+		{
+			clean += 15;
+			hp -= 14;
+			if (lastFed == Fire)
+				state == Water;
+		}
+		lastFed = Fire;
+	}
+
+	void Game::feedHoney()
+	{
+		if (state == Normal)
+		{
+			hunger += 12;
+			clean -= 25;
+			if (lastFed == Water)
+				state = Honey;
+		}
+		else if (state == Water)
+		{
+			hunger += 2;
+			clean -= 25;
+			if (lastFed == Honey)
+				state = Honey;
+		}
+		else if (state == Fire)
+		{
+			clean -= 17;
+			if (lastFed == Honey)
+				state = Normal;
+		}
+		else if (state == Air)
+		{
+			hunger += 10;
+			clean -= 2;
+			if (lastFed == Water)
+				state = Honey;
+			if (lastFed == Honey)
+				state = Normal;
+		}
+		else if (state == Honey)
+		{
+			hunger += 10;
+			hp += 2;
+			clean -= 13;
+		}
+		lastFed = Honey;
+	}
+
+	void Game::feedWater()
+	{
+		if (state == Normal)
+		{
+			hunger += 5;
+			clean -= 2;
+			if (lastFed == Water)
+				state = Water;
+		}
+		else if (state == Water)
+		{
+			hunger += 5;
+			clean -= 5;
+		}
+		else if (state == Fire)
+		{
+			hp -= 5;
+			clean += 10;
+			if (lastFed == Air)
+				state = Air;
+		}
+		else if (state == Air)
+		{
+			clean += 10;
+			hunger -= 3;
+			if (lastFed == Honey)
+				state == Normal;
+		}
+		else if (state == Honey)
+		{
+			hp += 1;
+			clean += 3;
+			if (lastFed == Air)
+				state = Water;
+		}
+		lastFed = Water;
 	}
 };

@@ -31,11 +31,18 @@ namespace cactaigotchi
 
 		/* Game data */
 		CactaiState state;
+		CactaiState lastFed;
 
 		int hunger;
 		int hp;
 		int clean;
 		int score;
+
+		void feedWater();
+		void feedHoney();
+		void feedFire();
+		void feedAir();
+
 
 	public:
 		Game(WindowSystem &);
