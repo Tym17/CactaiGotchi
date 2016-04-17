@@ -21,12 +21,15 @@
     <ClCompile Include="WindowSystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="StateMachine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="IStates.hpp">
+    <ClInclude Include="WindowSystem.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="WindowSystem.hpp">
+    <ClInclude Include="StateMachine.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

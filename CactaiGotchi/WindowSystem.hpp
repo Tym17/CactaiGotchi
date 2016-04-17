@@ -4,6 +4,7 @@
 # define WINDOWSYSTEM_HPP_
 
 # include <SFML/Graphics.hpp>
+# include "WindowSystem.hpp"
 
 namespace cactaigotchi
 {

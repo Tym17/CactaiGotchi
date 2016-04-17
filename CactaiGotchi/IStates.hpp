@@ -3,12 +3,14 @@
 #ifndef ISTATE_HPP_
 # define ISTATE_HPP_
 
+# include "WindowSystem.hpp"
+
 namespace cactaigotchi
 {
 	class IState
 	{
 	public:
-		virtual void render() = 0;
+		virtual int render(WindowSystem &) = 0;
 	};
 };
 

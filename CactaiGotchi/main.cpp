@@ -1,22 +1,15 @@
-#include "WindowSystem.hpp"
+#include "StateMachine.hpp"
 
 int main(int ac, char **)
 {
-
 	cactaigotchi::WindowSystem win;
-
-	sf::CircleShape shape(100.f);
-	shape.setFillColor(sf::Color::Green);
+	cactaigotchi::StateMachine state(win);
 
 	while (win.isOpen())
 	{
 		sf::Event event;
-		while (win.pollEvent(event))
-		{
-		}
-
 		win.clear();
-		win.it->draw(shape);
+		state.render();
 		win.display();
 	}
 	return 0;
