@@ -1,6 +1,7 @@
 #include <iostream>
 #include <SFML/Window/Event.hpp>
 #include "StateMachine.hpp"
+#include "Game.hpp"
 
 namespace cactaigotchi
 {
@@ -93,7 +94,7 @@ namespace cactaigotchi
 		}
 		sf::Sprite sprite;
 		sprite.setTexture(texture);
-
+		Game::Tick(win);
 		win.it->draw(sprite);
 	}
 };
