@@ -12,7 +12,7 @@ namespace cactaigotchi
 {
 	enum CactaiState
 	{
-		Water = 0x0088FF,
+		Water = 0x33FFFF,
 		Fire = 0xFF4422,
 		Honey = 0xFFFF00,
 		Air = 0xDDDDFF,
@@ -22,6 +22,7 @@ namespace cactaigotchi
 	class Game
 	{
 		WindowSystem &win;
+		bool gameOver;
 		DrawHelper helper;
 
 		std::vector<sensitiveZone>	sensitiveAera;
@@ -34,6 +35,7 @@ namespace cactaigotchi
 		int hunger;
 		int hp;
 		int clean;
+		int score;
 
 	public:
 		Game(WindowSystem &);

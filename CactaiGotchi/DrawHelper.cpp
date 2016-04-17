@@ -67,13 +67,13 @@ namespace cactaigotchi
 		win.it->draw(sprite);
 	}
 
-	void DrawHelper::drawText(int x, int y, const char *txt)
+	void DrawHelper::drawText(int x, int y, const char *txt, int size = 24)
 	{
 		sf::Text text;
 
 		text.setFont(OpenSans);
 		text.setString(txt);
-		text.setCharacterSize(24);
+		text.setCharacterSize(size);
 		text.setColor(sf::Color::Black);
 		text.setPosition(x, y);
 		win.it->draw(text);

@@ -18,7 +18,7 @@ namespace cactaigotchi
 		void drawImage(int, int, const char *, int color);
 		void drawImage(int, int, const char *, int color, float);
 
-		void drawText(int, int, const char *);
+		void drawText(int, int, const char *, int size);
 		void drawBar(int, int, int len, int actual, int max, int colorFull, int colorEmpty);
 	};
 };
