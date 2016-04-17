@@ -1,6 +1,6 @@
 #include "StateMachine.hpp"
 
-int main(int ac, char **)
+int main(int ac, char **av)
 {
 	cactaigotchi::WindowSystem win;
 	cactaigotchi::StateMachine state(win);

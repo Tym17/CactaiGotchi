@@ -103,6 +103,9 @@
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalLibraryDirectories>C:\Lib\SFML-2.3.2\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>sfml-system.lib;sfml-window.lib;sfml-graphics.lib;sfml-audio.lib;sfml-network.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>NotSet</SubSystem>
+      <EntryPointSymbol>
+      </EntryPointSymbol>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -130,9 +133,21 @@
     <ClInclude Include="Config.hpp" />
     <ClInclude Include="DrawHelper.hpp" />
     <ClInclude Include="Game.hpp" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="resource1.h" />
+    <ClInclude Include="resource2.h" />
+    <ClInclude Include="resource3.h" />
+    <ClInclude Include="resource4.h" />
+    <ClInclude Include="resource5.h" />
     <ClInclude Include="SensitiveZone.hpp" />
     <ClInclude Include="StateMachine.hpp" />
     <ClInclude Include="WindowSystem.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="CactaiGotchi.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="img\fuit.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
