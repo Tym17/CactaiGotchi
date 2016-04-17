@@ -62,7 +62,9 @@ namespace cactaigotchi
 		helper.drawText(WIN_X - 90, WIN_Y - 19, "Health", 11);
 		helper.drawText(WIN_X - 90, WIN_Y - 39, "Hungerness", 11);
 		helper.drawText(WIN_X - 90, WIN_Y - 59, "Cleaniness", 11);
-
+		helper.drawImage(14, 28, "img/cactaifood.png");
+		helper.drawText(5, 22, "x", 30);
+		helper.drawText(5, 1, std::to_string(score).c_str(), 30);
 	}
 
 	void Game::clickTrigger(int x, int y)
