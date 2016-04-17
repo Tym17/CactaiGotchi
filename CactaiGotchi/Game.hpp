@@ -3,8 +3,10 @@
 #ifndef GAME_HPP_
 # define GAME_HPP_
 
+# include <vector>
 # include "WindowSystem.hpp"
 # include "DrawHelper.hpp"
+# include "SensitiveZone.hpp"
 
 namespace cactaigotchi
 {
@@ -12,6 +14,10 @@ namespace cactaigotchi
 	{
 		WindowSystem &win;
 		DrawHelper helper;
+
+		std::vector<sensitiveZone>	sensitiveAera;
+
+		void clickTrigger(int x, int y);
 
 	public:
 		Game(WindowSystem &);

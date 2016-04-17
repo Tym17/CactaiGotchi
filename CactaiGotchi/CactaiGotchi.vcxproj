@@ -121,12 +121,14 @@
     <ClCompile Include="DrawHelper.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Sensitivezone.cpp" />
     <ClCompile Include="StateMachine.cpp" />
     <ClCompile Include="WindowSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DrawHelper.hpp" />
     <ClInclude Include="Game.hpp" />
+    <ClInclude Include="SensitiveZone.hpp" />
     <ClInclude Include="StateMachine.hpp" />
     <ClInclude Include="WindowSystem.hpp" />
   </ItemGroup>
