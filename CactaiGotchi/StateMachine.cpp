@@ -33,7 +33,7 @@ namespace cactaigotchi
 
 		if (!texture.loadFromFile("img/title.png"))
 		{
-			std::cerr << "Could not open texture" << std::endl;
+			std::cout << "Could not open texture" << std::endl;
 			return;
 		}
 		sf::Event event;

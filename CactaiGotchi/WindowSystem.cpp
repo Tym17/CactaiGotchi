@@ -8,10 +8,16 @@ namespace cactaigotchi
 		try {
 			it = new sf::RenderWindow(sf::VideoMode(700, 600), "CactaiGotchi", sf::Style::Close);
 		}
-		catch (std::bad_alloc &e)
+		catch (std::bad_alloc e)
 		{
 			std::cout << "Could not create window" << std::endl;
 		}
+		sf::Image img;
+		if (!img.loadFromFile("img/cactaifood.png"))
+		{
+			std::cerr << "Could not open icon." << std::endl;
+		}
+		it->setIcon(64, 64, img.getPixelsPtr());
 		it->setFramerateLimit(60);
 	}
 

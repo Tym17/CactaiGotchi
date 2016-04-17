@@ -92,7 +92,6 @@ namespace cactaigotchi
 			if (it->isIn(x, y))
 			{
 				// Should change this to a pointer to member thing inside
-				std::cout << "ActiveArea :" << it->getZoneId() << std::endl;
 				switch (it->getZoneId())
 				{
 				case 1:
@@ -129,7 +128,6 @@ namespace cactaigotchi
 	{
 		if (gameOver)
 			return;
-		std::cout << "tick" << std::endl;
 		static int cycles = 0;
 
 		if (cycles % 3 == 0)
@@ -238,7 +236,7 @@ namespace cactaigotchi
 			clean += 15;
 			hp -= 14;
 			if (lastFed == Fire)
-				state == Water;
+				state = Water;
 		}
 		lastFed = Fire;
 	}
@@ -309,7 +307,7 @@ namespace cactaigotchi
 			clean += 10;
 			hunger -= 3;
 			if (lastFed == Honey)
-				state == Normal;
+				state = Normal;
 		}
 		else if (state == Honey)
 		{

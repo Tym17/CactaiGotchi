@@ -7,7 +7,6 @@ int main(int ac, char **)
 
 	while (win.isOpen())
 	{
-		sf::Event event;
 		win.clear();
 		state.render();
 		win.display();
