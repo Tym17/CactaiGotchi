@@ -47,6 +47,26 @@ namespace cactaigotchi
 		win.it->draw(sprite);
 	}
 
+	void DrawHelper::drawImage(int x, int y, const char *path, int clr, float scale)
+	{
+		sf::Texture texture;
+
+		if (!texture.loadFromFile(path))
+		{
+			std::cerr << "Could not open texture" << std::endl;
+			return;
+		}
+		texture.setSmooth(true);
+		sf::Sprite sprite;
+		sprite.setTexture(texture);
+		sprite.setPosition(x, y);
+		sprite.setColor(sf::Color(clr >> 16 & 0xFF,
+			clr >> 8 & 0xFF,
+			clr & 0xFF));
+		sprite.setScale(scale, scale);
+		win.it->draw(sprite);
+	}
+
 	void DrawHelper::drawText(int x, int y, const char *txt)
 	{
 		sf::Text text;

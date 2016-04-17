@@ -10,6 +10,15 @@
 
 namespace cactaigotchi
 {
+	enum CactaiState
+	{
+		Water = 0x0088FF,
+		Fire = 0xFF4422,
+		Honey = 0xFFFF00,
+		Air = 0xDDDDFF,
+		Normal = 0x00FF00
+	};
+
 	class Game
 	{
 		WindowSystem &win;
@@ -18,6 +27,13 @@ namespace cactaigotchi
 		std::vector<sensitiveZone>	sensitiveAera;
 
 		void clickTrigger(int x, int y);
+
+		/* Game data */
+		CactaiState state;
+
+		int hunger;
+		int hp;
+		int clean;
 
 	public:
 		Game(WindowSystem &);
