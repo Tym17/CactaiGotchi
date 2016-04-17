@@ -2,7 +2,4 @@
 Ludum dare 35
 
 This project is a little game made for Ludum dare 35, theme is Shapeshift.
-
-int >> 16 & 0xFF
-int >> 8 & 0xFF
-int & 0xFF
+An attempt at making a game in C++/SFML in a short range of time. Still requires some work on compatibility
