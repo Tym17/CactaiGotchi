@@ -1,24 +1,23 @@
-#include <SFML/Graphics.hpp>
+#include "WindowSystem.hpp"
 
 int main(int ac, char **)
 {
 
-	sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
+	cactaigotchi::WindowSystem win;
+
 	sf::CircleShape shape(100.f);
 	shape.setFillColor(sf::Color::Green);
 
-	while (window.isOpen())
+	while (win.isOpen())
 	{
 		sf::Event event;
-		while (window.pollEvent(event))
+		while (win.pollEvent(event))
 		{
-			if (event.type == sf::Event::Closed)
-				window.close();
 		}
 
-		window.clear();
-		window.draw(shape);
-		window.display();
+		win.clear();
+		win.it->draw(shape);
+		win.display();
 	}
 	return 0;
 }
