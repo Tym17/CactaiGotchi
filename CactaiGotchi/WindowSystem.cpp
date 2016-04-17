@@ -6,7 +6,7 @@ namespace cactaigotchi
 	WindowSystem::WindowSystem()
 	{
 		try {
-			it = new sf::RenderWindow(sf::VideoMode(700, 600), "CactaiGotchi", sf::Style::Close);
+			it = new sf::RenderWindow(sf::VideoMode(700, 600), "CactaiGotchi v1.0.0 - Tym17.com", sf::Style::Close);
 		}
 		catch (std::bad_alloc e)
 		{
