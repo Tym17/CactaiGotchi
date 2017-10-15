@@ -7,3 +7,7 @@ An attempt at making a game in C++/SFML in a short range of time. Still requires
 Code is licensed under Apache 2.0 and my art is licensed under CC-BY-SA 4.0.
 
 Some icons are CC-BY 3.0 made by the guys at http://game-icons.net/ (They done an incredible job, you could give a look ! :))
+
+![Alt text](/images/img1.png?raw=true)
+![Alt text](/images/img2.png?raw=true)
+![Alt text](/images/img3.png?raw=true)
